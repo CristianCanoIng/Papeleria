@@ -1,5 +1,8 @@
 package com.example.ProPapeleria.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,7 +19,9 @@ public class Empleado {
     private String telefono;
 
     @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Venta> ventas;
+
 
     public Empleado() {
     }

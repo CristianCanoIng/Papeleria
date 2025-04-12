@@ -1,5 +1,7 @@
 package com.example.ProPapeleria.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class Cliente {
     private String correo;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Venta> ventas;
 
     public Cliente() {
